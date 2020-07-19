@@ -33,7 +33,7 @@ firebase.initializeApp({
   storageBucket: "vue-stud.appspot.com",
   messagingSenderId: "297227169637",
   appId: "1:297227169637:web:d8ac037ae821174b96bb8c",
-  measurementId: "G-01572Z73QC",
+  measurementId: "G-01572Z73QC"
 });
 
 let app;
@@ -43,7 +43,7 @@ firebase.auth().onAuthStateChanged(() => {
     app = new Vue({
       router,
       store,
-      render: (h) => h(App),
+      render: h => h(App)
     }).$mount("#app");
   }
 });

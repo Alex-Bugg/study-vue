@@ -11,16 +11,15 @@
           type="text"
           v-model="name"
           :class="{
-            invalid: $v.name.$dirty && !$v.name.required,
+            invalid: $v.name.$dirty && !$v.name.required
           }"
         />
         <label for="description">Имя</label>
         <small
           class="helper-text invalid"
           v-if="$v.name.$dirty && !$v.name.required"
+          >Ввидите имя</small
         >
-          Ввидите имя
-        </small>
       </div>
 
       <button class="btn waves-effect waves-light" type="submit">
@@ -37,7 +36,7 @@ import { required } from "vuelidate/lib/validators";
 
 export default {
   data: () => ({
-    name: "",
+    name: ""
   }),
   mounted() {
     this.name = this.info.name;
@@ -46,10 +45,10 @@ export default {
     });
   },
   validations: {
-    name: { required },
+    name: { required }
   },
   computed: {
-    ...mapGetters(["info"]),
+    ...mapGetters(["info"])
   },
   methods: {
     ...mapActions(["updateInfo"]),
@@ -60,12 +59,12 @@ export default {
       }
       try {
         await this.updateInfo({
-          name: this.name,
+          name: this.name
         });
       } catch (e) {
         console.log(e);
       }
-    },
-  },
+    }
+  }
 };
 </script>

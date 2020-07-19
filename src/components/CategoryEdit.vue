@@ -8,7 +8,9 @@
       <form @submit.prevent="submitHandler">
         <div class="input-field">
           <select ref="select" v-model="current">
-            <option v-for="(c, i) in categories" :key="i" :value="c.id">{{c.title}}</option>
+            <option v-for="(c, i) in categories" :key="i" :value="c.id">{{
+              c.title
+            }}</option>
           </select>
           <label>Выберите категорию</label>
         </div>
@@ -18,13 +20,14 @@
             id="name"
             type="text"
             v-model="title"
-            :class="{invalid: $v.title.$dirty && !$v.title.required}"
+            :class="{ invalid: $v.title.$dirty && !$v.title.required }"
           />
           <label for="name">Название</label>
           <span
             class="helper-text invalid"
             v-if="$v.title.$dirty && !$v.title.required"
-          >Введите название категории</span>
+            >Введите название категории</span
+          >
         </div>
 
         <div class="input-field">
@@ -32,13 +35,14 @@
             id="limit"
             type="number"
             v-model.number="limit"
-            :class="{invalid: $v.limit.$dirty && !$v.limit.required}"
+            :class="{ invalid: $v.limit.$dirty && !$v.limit.required }"
           />
           <label for="limit">Лимит</label>
           <span
             class="helper-text invalid"
             v-if="$v.limit.$dirty && !$v.limit.minValue"
-          >Минимальная значение {{$v.limit.$params.minValue.min}}</span>
+            >Минимальная значение {{ $v.limit.$params.minValue.min }}</span
+          >
         </div>
 
         <button class="btn waves-effect waves-light" type="submit">

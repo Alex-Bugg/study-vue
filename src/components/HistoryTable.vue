@@ -13,12 +13,14 @@
 
     <tbody>
       <tr v-for="(record, idx) in records" :key="record.id">
-        <td>{{idx + 1}}</td>
-        <td>{{record.amount | currency('UAH')}}</td>
-        <td>{{record.date | date('datetime')}}}</td>
-        <td>{{record.categoryName}}</td>
+        <td>{{ idx + 1 }}</td>
+        <td>{{ record.amount | currency("UAH") }}</td>
+        <td>{{ record.date | date("datetime") }}}</td>
+        <td>{{ record.categoryName }}</td>
         <td>
-          <span class="white-text badge" :class="[record.typeClass]">{{record.typeText}}</span>
+          <span class="white-text badge" :class="[record.typeClass]">{{
+            record.typeText
+          }}</span>
         </td>
         <td>
           <button

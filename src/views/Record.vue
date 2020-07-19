@@ -14,21 +14,35 @@
     <form v-else class="form" @submit.prevent="handlerSubmit">
       <div class="input-field">
         <select ref="select" v-model="category">
-          <option v-for="c in categories" :key="c.id" :value="c.id">{{c.title}}</option>
+          <option v-for="c in categories" :key="c.id" :value="c.id">{{
+            c.title
+          }}</option>
         </select>
         <label>Выберите категорию</label>
       </div>
 
       <p>
         <label>
-          <input class="with-gap" name="type" type="radio" value="income" v-model="type" />
+          <input
+            class="with-gap"
+            name="type"
+            type="radio"
+            value="income"
+            v-model="type"
+          />
           <span>Доход</span>
         </label>
       </p>
 
       <p>
         <label>
-          <input class="with-gap" name="type" type="radio" value="outcome" v-model="type" />
+          <input
+            class="with-gap"
+            name="type"
+            type="radio"
+            value="outcome"
+            v-model="type"
+          />
           <span>Расход</span>
         </label>
       </p>
@@ -38,13 +52,14 @@
           id="amount"
           type="number"
           v-model.number="amount"
-          :class="{invalid: $v.amount.$dirty && !$v.amount.minValue}"
+          :class="{ invalid: $v.amount.$dirty && !$v.amount.minValue }"
         />
         <label for="amount">Сумма</label>
         <span
           class="helper-text invalid"
           v-if="$v.amount.$dirty && !$v.amount.minValue"
-        >Минимальная значение {{$v.amount.$params.minValue.min}}</span>
+          >Минимальная значение {{ $v.amount.$params.minValue.min }}</span
+        >
       </div>
 
       <div class="input-field">
@@ -52,13 +67,16 @@
           id="description"
           type="text"
           v-model="description"
-          :class="{invalid: $v.description.$dirty && !$v.description.required}"
+          :class="{
+            invalid: $v.description.$dirty && !$v.description.required
+          }"
         />
         <label for="description">Описание</label>
         <span
           class="helper-text invalid"
           v-if="$v.description.$dirty && !$v.description.required"
-        >Введите описание</span>
+          >Введите описание</span
+        >
       </div>
 
       <button class="btn waves-effect waves-light" type="submit">

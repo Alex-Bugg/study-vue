@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 
 export default {
   state: {
-    info: {},
+    info: {}
   },
   mutations: {
     setInfo(state, info) {
@@ -10,7 +10,7 @@ export default {
     },
     clearInfo(state) {
       state.info = {};
-    },
+    }
   },
   actions: {
     async updateInfo({ dispatch, commit, getters }, toUpdate) {
@@ -41,9 +41,9 @@ export default {
         commit("setError", e);
         throw e;
       }
-    },
+    }
   },
   getters: {
-    info: (s) => s.info,
-  },
+    info: s => s.info
+  }
 };

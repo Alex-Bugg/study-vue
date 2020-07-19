@@ -8,5 +8,5 @@ export default {
     Vue.prototype.$error = function(html) {
       window.M.toast({ html: `[Ошибка]: ${html}` });
     };
-  },
+  }
 };

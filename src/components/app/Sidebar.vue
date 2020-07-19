@@ -9,9 +9,7 @@
       :exact="link.exact"
     >
       <a href="#" class="waves-effect waves-orange pointer">
-        {{
-        link.title
-        }}
+        {{ link.title }}
       </a>
     </router-link>
   </ul>

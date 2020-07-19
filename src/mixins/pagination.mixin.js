@@ -7,7 +7,7 @@ export default {
       pageSize: 5,
       pageCount: 0,
       allItems: [],
-      items: [],
+      items: []
     };
   },
   methods: {
@@ -19,6 +19,6 @@ export default {
       this.allItems = _.chunk(allItems, this.pageSize);
       this.pageCount = _.size(this.allItems);
       this.items = this.allItems[this.page - 1] || this.page.allItems[0];
-    },
-  },
+    }
+  }
 };

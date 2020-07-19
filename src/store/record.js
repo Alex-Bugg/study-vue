@@ -24,9 +24,9 @@ export default {
               .ref(`/users/${uid}/records`)
               .once("value")
           ).val() || {};
-        return Object.keys(records).map((key) => ({
+        return Object.keys(records).map(key => ({
           ...records[key],
-          id: key,
+          id: key
         }));
       } catch (e) {
         commit("setError", e);
@@ -49,6 +49,6 @@ export default {
         commit("setError", e);
         throw e;
       }
-    },
-  },
+    }
+  }
 };

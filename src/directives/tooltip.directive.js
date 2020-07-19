@@ -6,5 +6,5 @@ export default {
     const tooltip = window.M.Tooltip.getInstance(el);
 
     if (tooltip && tooltip.destroy) tooltip.destroy();
-  },
+  }
 };
