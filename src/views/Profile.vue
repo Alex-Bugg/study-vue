@@ -15,11 +15,23 @@
           }"
         />
         <label for="description">Имя</label>
+        <small class="helper-text invalid" v-if="$v.name.$dirty && !$v.name.required">Ввидите имя</small>
+      </div>
+      <div class="input-field">
+        <input
+          id="description"
+          type="number"
+          v-model="bill"
+          :class="{
+            invalid: ($v.bill.$dirty && !$v.bill.required) || ($v.bill.$dirty && !$v.bill.minValue)
+          }"
+        />
+        <label for="description">Бюджет</label>
+        <small class="helper-text invalid" v-if="$v.bill.$dirty && !$v.bill.required">Ввидите сумму</small>
         <small
           class="helper-text invalid"
-          v-if="$v.name.$dirty && !$v.name.required"
-          >Ввидите имя</small
-        >
+          v-else-if="$v.bill.$dirty && !$v.bill.minValue"
+        >Минимальная сумма {{this.$v.bill.$params.minValue.min}}</small>
       </div>
 
       <button class="btn waves-effect waves-light" type="submit">
@@ -32,20 +44,23 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { required } from "vuelidate/lib/validators";
+import { required, minValue } from "vuelidate/lib/validators";
 
 export default {
   data: () => ({
-    name: ""
+    name: "",
+    bill: ""
   }),
   mounted() {
     this.name = this.info.name;
+    this.bill = this.info.bill;
     setTimeout(() => {
       window.M.updateTextFields();
     });
   },
   validations: {
-    name: { required }
+    name: { required },
+    bill: { required, minValue: minValue(100) }
   },
   computed: {
     ...mapGetters(["info"])
@@ -59,7 +74,8 @@ export default {
       }
       try {
         await this.updateInfo({
-          name: this.name
+          name: this.name,
+          bill: this.bill
         });
       } catch (e) {
         console.log(e);
