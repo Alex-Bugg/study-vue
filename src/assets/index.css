@@ -1,3 +1,9 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 .empty-layout {
   display: -webkit-flex;
   display: -ms-flexbox;

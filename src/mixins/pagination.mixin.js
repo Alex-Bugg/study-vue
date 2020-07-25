@@ -4,10 +4,10 @@ export default {
   data() {
     return {
       page: +this.$route.query.page || 1,
-      pageSize: 5,
+      pageSize: 8,
       pageCount: 0,
       allItems: [],
-      items: []
+      items: [],
     };
   },
   methods: {
@@ -19,6 +19,6 @@ export default {
       this.allItems = _.chunk(allItems, this.pageSize);
       this.pageCount = _.size(this.allItems);
       this.items = this.allItems[this.page - 1] || this.page.allItems[0];
-    }
-  }
+    },
+  },
 };

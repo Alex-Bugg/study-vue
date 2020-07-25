@@ -8,9 +8,7 @@
       :to="link.url"
       :exact="link.exact"
     >
-      <a href="#" class="waves-effect waves-orange pointer">
-        {{ link.title }}
-      </a>
+      <a href="#" class="waves-effect waves-orange pointer">{{ link.title }}</a>
     </router-link>
   </ul>
 </template>
@@ -24,7 +22,8 @@ export default {
       { title: "История", url: "/history" },
       { title: "Планирование", url: "/planing" },
       { title: "Новая запись", url: "/record" },
-      { title: "Категории", url: "/categories" }
+      { title: "Категории", url: "/categories" },
+      { title: "Новости", url: "/news" }
     ]
   })
 };
