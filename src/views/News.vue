@@ -76,18 +76,17 @@ export default {
   mixins: [paginationMixin],
   data: () => ({
     loading: true,
-    country: "ua"
+    country: "ua",
+    news: []
   }),
   async mounted() {
-    const news = (await this.$store.dispatch("fetchNews", this.country))
-      .articles;
-    this.setup(news);
+    this.news = (
+      await this.$store.dispatch("fetchNews", this.country)
+    ).articles;
+    this.setup(this.news);
     this.loading = false;
   },
   methods: {
-    setup(news) {
-      this.setupPagination(news);
-    },
     async changeCountry(e) {
       this.loading = true;
       this.country = e.target.value;
@@ -95,6 +94,10 @@ export default {
         await this.$store.dispatch("fetchNews", this.country)
       ).articles;
       this.loading = false;
+      this.setup(this.news);
+    },
+    setup() {
+      this.setupPagination(this.news);
     },
     changeType(e) {
       if (e.target.id === "list") {
