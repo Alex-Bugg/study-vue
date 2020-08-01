@@ -1,1 +1,2 @@
-https://vue-stud.web.app/login?message=login
+https://vue-stud.web.app
+
